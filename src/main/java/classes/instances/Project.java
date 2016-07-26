@@ -37,7 +37,7 @@ public class Project {
     }
 
     public void addUser(User user){
-        if (this.getUser(user.getUsername()) != null) {
+        if (this.getUser(user.getUsername()) == null) {
             this.users.add(user);
             logger.debug("User " + user.getUsername() + " added to project " + this.getProjectName());
         }

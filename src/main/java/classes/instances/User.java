@@ -65,11 +65,16 @@ public class User {
 
     @Override
     public String toString() {
+        String allProjects = "[";
+        for (Project project: projects){
+            allProjects += project.getProjectName() + ", ";
+        }
+        allProjects += ']';
         return "User{" +
                 "username='" + username + '\'' +
                 ", worked=" + worked +
                 ", billed=" + billed +
-                ", projects=" + projects +
+                ", projects=" + allProjects +
                 ", worklog=" + worklog +
                 '}';
     }
