@@ -1,8 +1,6 @@
 package classes.application;
 
-import classes.instances.Analyzer;
-import classes.instances.ExcelFileReader;
-import classes.instances.WorkLogWorkbook;
+import classes.instances.*;
 
 import java.io.File;
 
@@ -14,6 +12,8 @@ public class runApplication {
         WorkLogWorkbook workbook = new WorkLogWorkbook(ExcelFileReader.readWorkbook(new File("input.xls")));
         Analyzer analyzer = new Analyzer(workbook);
         analyzer.analizeWorklogs();
-        System.out.println(analyzer.getUser("User1"));
+        ReportGenerator reportGenerator = new ReportGenerator(analyzer);
+        reportGenerator.doReport();
+        ExcelFileWriter.write(reportGenerator.getReportWorkbook());
     }
 }

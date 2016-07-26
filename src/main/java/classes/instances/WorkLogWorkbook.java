@@ -75,24 +75,6 @@ public class WorkLogWorkbook {
         return this.workbook.getSheet("People");
     }
 
-    public List<User> getUsers(){
-        List<User> users = new ArrayList<>();
-        Sheet sheet = this.getPeopleSheet();
-        Iterator<Row> rowIterator = sheet.rowIterator();
-        Row row = rowIterator.next();
-        while (rowIterator.hasNext()){
-            row = rowIterator.next();
-            users.add(new User(row.getCell(peopleUsernameColumnIndex).getStringCellValue(),
-                                row.getCell(peopleWorkedColumnIndex).getNumericCellValue(),
-                                row.getCell(peopleBilledColumnIndex).getNumericCellValue()));
-            logger.debug("User: [username: " + row.getCell(peopleUsernameColumnIndex).getStringCellValue()
-                            + ", worked: " + row.getCell(peopleWorkedColumnIndex).getNumericCellValue()
-                            + ", billed: " + row.getCell(peopleBilledColumnIndex).getNumericCellValue()
-                            + "] added.");
-        }
-        return users;
-    }
-
     private void cellsInit(){
         for(int i = 0; i < this.workbook.getNumberOfSheets(); i++) {
             Sheet sheet = this.workbook.getSheetAt(i);

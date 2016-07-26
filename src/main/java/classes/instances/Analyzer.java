@@ -19,17 +19,12 @@ public class Analyzer {
 
     public Analyzer(WorkLogWorkbook workbook){
         this.workbook = workbook;
-        this.users = workbook.getUsers();
+        this.users = new ArrayList<>();
         this.projects = new ArrayList<>();
     }
 
     public WorkLogWorkbook getWorkbook() {
         return workbook;
-    }
-
-    public void setWorkbook(WorkLogWorkbook workbook) {
-        this.workbook = workbook;
-        this.users = workbook.getUsers();
     }
 
     public List<User> getUsers() {
