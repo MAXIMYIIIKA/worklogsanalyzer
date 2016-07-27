@@ -1,10 +1,8 @@
 package classes.instances;
 
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
-import java.io.File;
 import java.util.*;
 
 /**
@@ -64,6 +62,23 @@ public class Analyzer {
         return row.getCell(this.workbook.getWorklogsBilledHoursColumnIndex()).getNumericCellValue();
     }
 
+    private void sortAll(){
+        Collections.sort(users, (o1, o2) -> {
+            if (o1.getUsername().length() != o2.getUsername().length()){
+                return String.valueOf(o1.getUsername().length()).compareTo(
+                        String.valueOf(o2.getUsername().length()));
+            }
+            return o1.getUsername().compareTo(o2.getUsername());
+        });
+        Collections.sort(projects, (o1, o2) -> {
+            if (o1.getProjectName().length() != o2.getProjectName().length()){
+                return String.valueOf(o1.getProjectName().length()).compareTo(
+                        String.valueOf(o2.getProjectName().length()));
+            }
+            return o1.getProjectName().compareTo(o2.getProjectName());
+        });
+    }
+
     public void analizeWorklogs(){
         Sheet sheet = workbook.getWorklogsSheet();
         Iterator<Row> rowIterator = sheet.rowIterator();
@@ -78,19 +93,10 @@ public class Analyzer {
             project = getProject(getProjectKeyCellValue(row));
             if (getUser(getUsernameCellValue(row)) == null) {
                 users.add(new User(getUsernameCellValue(row)));
-                Collections.sort(users, new Comparator<User>() {
-                    @Override
-                    public int compare(User o1, User o2) {
-                        if (o1.getUsername().length() != o2.getUsername().length()){
-                            return String.valueOf(o1.getUsername().length()).compareTo(
-                                                    String.valueOf(o2.getUsername().length()));
-                        }
-                        return o1.getUsername().compareTo(o2.getUsername());
-                    }
-                });
             }
             user = getUser(getUsernameCellValue(row));
             user.addWork(project, getBilledHoursCellValue(row));
         }
+        sortAll();
     }
 }

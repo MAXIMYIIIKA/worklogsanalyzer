@@ -24,22 +24,12 @@ public class User {
         this.username = username;
         this.worklog = new HashMap<>();
         projects = new ArrayList<>();
-    }
-
-    public User(String username, Double worked, Double billed){
-        this.username = username;
-        this.worked = worked;
-        this.billed = billed;
-        projects = new ArrayList<>();
-        this.worklog = new HashMap<>();
+        worked = 0.0;
+        billed = 0.0;
     }
 
     public String getUsername() {
         return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public Double getWorked() {
@@ -60,7 +50,9 @@ public class User {
             project.addUser(this);
         }
         worklog.compute(project, (k,v) -> v == null ? time: v + time);
-        logger.debug("The work at the project "+ project.getProjectName() + " for " + time + " added");
+        worked += time;
+        billed += time;
+        logger.debug("The " + username + "'s work at the project "+ project.getProjectName() + " for " + time + " added");
     }
 
     @Override
