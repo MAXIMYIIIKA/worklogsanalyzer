@@ -37,27 +37,28 @@ public class ReportGenerator {
         Sheet sheet = this.reportWorkbook.createSheet();
         int i = -1;
         int j = 0;
-        Iterator<Row> rowIterator = null;
         Row row = null;
         Cell cell = null;
         for (Project project: analyzer.getProjects()){
-            rowIterator = sheet.rowIterator();
-            if (!rowIterator.hasNext()){
-                sheet.createRow(j);
-                j++;
+            j = 0;
+            if (sheet.getRow(j) == null) {
+                sheet.createRow(j).createCell(i + 2).setCellValue(project.getProjectName());
+            } else {
+                sheet.getRow(j).createCell(i + 2).setCellValue(project.getProjectName());
             }
-            row = rowIterator.next();
-            row.createCell(i + 2).setCellValue(project.getProjectName());
             for (User user: analyzer.getUsers()){
-                if (!rowIterator.hasNext()){
-                    sheet.createRow(j);
+                if (user.getWorklog().containsKey(project)) {
                     j++;
+                    if (sheet.getRow(j) == null) {
+                        sheet.createRow(j).createCell(i + 1).setCellValue(user.getUsername());
+                        sheet.getRow(j).createCell(i + 2).setCellValue(user.getWorklog().get(project));
+                    } else {
+                        sheet.getRow(j).createCell(i + 1).setCellValue(user.getUsername());
+                        sheet.getRow(j).createCell(i + 2).setCellValue(user.getWorklog().get(project));
+                    }
                 }
-                row = rowIterator.next();
-                row.createCell(i + 1).setCellValue(user.getUsername());
-                row.createCell(i + 2).setCellValue(user.getWorklog().get(project));
             }
-            i += 2;
+            i += 3;
         }
         logger.debug("Report created successfully");
     }
