@@ -5,9 +5,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Max Nichipor on 26.07.2016.
@@ -80,6 +78,16 @@ public class Analyzer {
             project = getProject(getProjectKeyCellValue(row));
             if (getUser(getUsernameCellValue(row)) == null) {
                 users.add(new User(getUsernameCellValue(row)));
+                Collections.sort(users, new Comparator<User>() {
+                    @Override
+                    public int compare(User o1, User o2) {
+                        if (o1.getUsername().length() != o2.getUsername().length()){
+                            return String.valueOf(o1.getUsername().length()).compareTo(
+                                                    String.valueOf(o2.getUsername().length()));
+                        }
+                        return o1.getUsername().compareTo(o2.getUsername());
+                    }
+                });
             }
             user = getUser(getUsernameCellValue(row));
             user.addWork(project, getBilledHoursCellValue(row));
