@@ -13,6 +13,10 @@ public class Analyzer {
     private List<User> users;
     private List<Project> projects;
 
+
+    /**
+     * @param workbook
+     */
     public Analyzer(WorkLogWorkbook workbook){
         this.workbook = workbook;
         this.users = new ArrayList<>();
@@ -32,6 +36,10 @@ public class Analyzer {
         return projects;
     }
 
+    /**
+     * @param username
+     * @return user
+     */
     public User getUser(String username){
         for(User user: this.users){
             if(user.getUsername().equals(username)){
@@ -41,6 +49,10 @@ public class Analyzer {
         return null;
     }
 
+    /**
+     * @param projectName
+     * @return project
+     */
     public Project getProject(String projectName){
         for(Project project: this.projects){
             if(project.getProjectName().equals(projectName)){
@@ -79,23 +91,22 @@ public class Analyzer {
         });
     }
 
+    /**
+     *  This method analyze the workbook
+     */
     public void analizeWorklogs(){
         Sheet sheet = workbook.getWorklogsSheet();
         Iterator<Row> rowIterator = sheet.rowIterator();
-        Row row = rowIterator.next();
-        User user = null;
-        Project project = null;
+        rowIterator.next();
         while (rowIterator.hasNext()){
-            row = rowIterator.next();
+            Row row = rowIterator.next();
             if(getProject(getProjectKeyCellValue(row)) == null) {
                 projects.add(new Project(getProjectKeyCellValue(row)));
             }
-            project = getProject(getProjectKeyCellValue(row));
             if (getUser(getUsernameCellValue(row)) == null) {
                 users.add(new User(getUsernameCellValue(row)));
             }
-            user = getUser(getUsernameCellValue(row));
-            user.addWork(project, getBilledHoursCellValue(row));
+            getUser(getUsernameCellValue(row)).addWork(getProject(getProjectKeyCellValue(row)), getBilledHoursCellValue(row));
         }
         sortAll();
     }

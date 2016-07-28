@@ -15,6 +15,9 @@ public class Project {
     private String projectName;
     private List<User> users;
 
+    /**
+     * @param projectName 
+     */
     public Project(String projectName){
         this.projectName = projectName;
         this.users = new ArrayList<>();
@@ -36,6 +39,9 @@ public class Project {
         this.users = users;
     }
 
+    /**
+     * @param user
+     */
     public void addUser(User user){
         if (this.getUser(user.getUsername()) == null) {
             this.users.add(user);
@@ -43,6 +49,10 @@ public class Project {
         }
     }
 
+    /**
+     * @param userName
+     * @return user
+     */
     public User getUser(String userName){
         for (User user: this.users) {
             if (user.getUsername().equals(userName)){

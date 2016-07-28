@@ -20,6 +20,9 @@ public class User {
     private List<Project> projects;
     private Map<Project, Double> worklog;
 
+    /**
+     * @param username
+     */
     public User(String username){
         this.username = username;
         this.worklog = new HashMap<>();
@@ -44,6 +47,10 @@ public class User {
         return worklog;
     }
 
+    /**
+     * @param project
+     * @param time
+     */
     public void addWork(Project project, Double time){
         if(!this.worklog.containsKey(project)){
             projects.add(project);
