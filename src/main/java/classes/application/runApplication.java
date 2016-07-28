@@ -7,7 +7,7 @@ import java.io.File;
 /**
  * Created by Max Nichipor on 26.07.2016.
  */
-public class runApplication {
+public class RunApplication {
     public static void main(String[] args) {
         WorkLogWorkbook workbook = new WorkLogWorkbook(ExcelFileReader.readWorkbook(new File("input.xls")));
         Analyzer analyzer = new Analyzer(workbook);

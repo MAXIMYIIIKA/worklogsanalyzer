@@ -57,16 +57,18 @@ public class User {
 
     @Override
     public String toString() {
-        String allProjects = "[";
+        StringBuilder allProjects = new StringBuilder();
+        allProjects.append("[");
         for (Project project: projects){
-            allProjects += project.getProjectName() + ", ";
+            allProjects.append(project.getProjectName());
+            allProjects.append(", ");
         }
-        allProjects += ']';
+        allProjects.append(']');
         return "User{" +
                 "username='" + username + '\'' +
                 ", worked=" + worked +
                 ", billed=" + billed +
-                ", projects=" + allProjects +
+                ", projects=" + allProjects.toString() +
                 ", worklog=" + worklog +
                 '}';
     }
