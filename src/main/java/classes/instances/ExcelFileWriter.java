@@ -16,7 +16,7 @@ public class ExcelFileWriter {
     private static Logger logger = Logger.getLogger(ExcelFileWriter.class);
 
     public static void write(Workbook workbook){
-        File outputfile = new File("MYoutput.xlsx");
+        File outputfile = new File("output.xlsx");
         FileOutputStream out = null;
         try{
             out = new FileOutputStream(outputfile);
