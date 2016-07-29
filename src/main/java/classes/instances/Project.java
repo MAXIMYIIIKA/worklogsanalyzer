@@ -16,7 +16,7 @@ public class Project {
     private List<User> users;
 
     /**
-     * @param projectName 
+     * @param projectName
      */
     public Project(String projectName){
         this.projectName = projectName;

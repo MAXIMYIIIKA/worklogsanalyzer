@@ -23,8 +23,6 @@ public class WorkLogWorkbook {
     private int peopleWorkedColumnIndex;
     private int peopleBilledColumnIndex;
 
-    public WorkLogWorkbook(){}
-
     public WorkLogWorkbook(Workbook workbook){
         this.workbook = workbook;
         this.cellsInit();
@@ -32,13 +30,6 @@ public class WorkLogWorkbook {
 
     public Workbook getWorkbook() {
         return workbook;
-    }
-
-    public void setWorkbook(Workbook workbook) {
-        if (this.workbook == null) {
-            this.workbook = workbook;
-            this.cellsInit();
-        }
     }
 
     public int getWorklogsUsernameColumnIndex() {

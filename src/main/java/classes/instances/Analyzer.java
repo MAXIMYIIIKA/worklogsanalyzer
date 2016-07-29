@@ -97,7 +97,7 @@ public class Analyzer {
     public void analizeWorklogs(){
         Sheet sheet = workbook.getWorklogsSheet();
         Iterator<Row> rowIterator = sheet.rowIterator();
-        rowIterator.next();
+        rowIterator.next();                      
         while (rowIterator.hasNext()){
             Row row = rowIterator.next();
             if(getProject(getProjectKeyCellValue(row)) == null) {

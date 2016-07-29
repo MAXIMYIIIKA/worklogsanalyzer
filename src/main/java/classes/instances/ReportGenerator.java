@@ -33,30 +33,27 @@ public class ReportGenerator {
     public void doReport(){
         logger.debug("Doing report...");
         Sheet sheet = this.reportWorkbook.createSheet();
-        int i = -1;
-        int j = 0;
-        Row row = null;
-        Cell cell = null;
+        int currentCell = -1;
         for (Project project: analyzer.getProjects()){
-            j = 0;
-            if (sheet.getRow(j) == null) {
-                sheet.createRow(j).createCell(i + 2).setCellValue(project.getProjectName());
+            int currentRow = 0;
+            if (sheet.getRow(currentRow) == null) {
+                sheet.createRow(currentRow).createCell(currentCell + 2).setCellValue(project.getProjectName());
             } else {
-                sheet.getRow(j).createCell(i + 2).setCellValue(project.getProjectName());
+                sheet.getRow(currentRow).createCell(currentCell + 2).setCellValue(project.getProjectName());
             }
             for (User user: analyzer.getUsers()){
                 if (user.getWorklog().containsKey(project)) {
-                    j++;
-                    if (sheet.getRow(j) == null) {
-                        sheet.createRow(j).createCell(i + 1).setCellValue(user.getUsername());
-                        sheet.getRow(j).createCell(i + 2).setCellValue(user.getWorklog().get(project));
+                    currentRow++;
+                    if (sheet.getRow(currentRow) == null) {
+                        sheet.createRow(currentRow).createCell(currentCell + 1).setCellValue(user.getUsername());
+                        sheet.getRow(currentRow).createCell(currentCell + 2).setCellValue(user.getWorklog().get(project));
                     } else {
-                        sheet.getRow(j).createCell(i + 1).setCellValue(user.getUsername());
-                        sheet.getRow(j).createCell(i + 2).setCellValue(user.getWorklog().get(project));
+                        sheet.getRow(currentRow).createCell(currentCell + 1).setCellValue(user.getUsername());
+                        sheet.getRow(currentRow).createCell(currentCell + 2).setCellValue(user.getWorklog().get(project));
                     }
                 }
             }
-            i += 3;
+            currentCell += 3;
         }
         logger.debug("Report created successfully");
     }
