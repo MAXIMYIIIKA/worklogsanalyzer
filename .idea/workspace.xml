@@ -55,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RunApplication.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RunApplication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/classes/application/RunApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+            <state relative-caret-position="187">
+              <caret line="11" column="104" selection-start-line="11" selection-start-column="104" selection-end-line="11" selection-end-column="104" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -79,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Analyzer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Analyzer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/classes/instances/Analyzer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="99" column="49" selection-start-line="99" selection-start-column="49" selection-end-line="99" selection-end-column="49" />
+            <state relative-caret-position="238">
+              <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -170,13 +170,13 @@
         <option value="$PROJECT_DIR$/src/main/java/classes/application/ExcelFileReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/classes/instances/ExcelFileReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/classes/application/runApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/classes/application/RunApplication.java" />
         <option value="$PROJECT_DIR$/src/main/java/classes/instances/ExcelFileWriter.java" />
         <option value="$PROJECT_DIR$/src/main/java/classes/instances/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/classes/instances/ReportGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/classes/instances/WorkLogWorkbook.java" />
         <option value="$PROJECT_DIR$/src/main/java/classes/instances/Project.java" />
         <option value="$PROJECT_DIR$/src/main/java/classes/instances/Analyzer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/classes/application/RunApplication.java" />
       </list>
     </option>
   </component>
@@ -949,12 +949,12 @@
       <workItem from="1469711476769" duration="76000" />
       <workItem from="1469711594074" duration="1092000" />
       <workItem from="1469712818560" duration="116000" />
-      <workItem from="1469787292220" duration="912000" />
+      <workItem from="1469787292220" duration="1730000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37444000" />
+    <option name="totallyTimeSpent" value="38262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1398,16 +1398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/classes/application/RunApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/classes/instances/WorkLogWorkbook.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-510">
@@ -1472,8 +1462,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/classes/instances/Analyzer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="99" column="49" selection-start-line="99" selection-start-column="49" selection-end-line="99" selection-end-column="49" />
+        <state relative-caret-position="238">
+          <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/classes/application/RunApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="104" selection-start-line="11" selection-start-column="104" selection-end-line="11" selection-end-column="104" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

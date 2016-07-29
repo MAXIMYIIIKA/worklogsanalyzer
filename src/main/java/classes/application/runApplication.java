@@ -9,7 +9,7 @@ import java.io.File;
  */
 public class RunApplication {
     public static void main(String[] args) {
-        WorkLogWorkbook workbook = new WorkLogWorkbook(ExcelFileReader.readWorkbook(new File("input.xls")));
+        WorkLogWorkbook workbook = new WorkLogWorkbook(ExcelFileReader.readWorkbook(new File(args[0])));
         Analyzer analyzer = new Analyzer(workbook);
         analyzer.analizeWorklogs();
         ReportGenerator reportGenerator = new ReportGenerator(analyzer);
